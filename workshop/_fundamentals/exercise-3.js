@@ -1,6 +1,6 @@
 // Exercise 3
 //
-// 1. Write a function accepts a food item as an argument and returns the proper beverage pairing.
+// 1. Write a function that accepts a food item as an argument and returns the proper beverage pairing.
 // e.g. getPairing('burger') returns 'beer'.
 
 // - if the provided argument is not a string, return "I didn't get that!".
@@ -14,7 +14,26 @@ let foodPairings = {
 
 const getPairing = (key) => {
   // Insert missing solution please
+  if (typeof key !== "string") {
+    return "I didn't get that!";
+  }
+  return foodPairings[key];
 };
+
+// const getPairing = (key) => {
+//   for (const [food, drink] of Object.entries(foodPairings)) {
+//     if (typeof key !== "string") {
+//       return "I didn't get that!";
+//     }
+//     return drink;
+//   }
+
+// Object.entries(foodPairings).forEach((element) => {
+//   if (typeof key !== "string") {
+//     return "I didn't get that!";
+//   }
+//   return foodPairings(element);
+// });
 
 // 2. Do a console.log to verify your function.
 
