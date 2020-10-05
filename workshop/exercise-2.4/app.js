@@ -74,7 +74,7 @@ function greenBackground(event) {
   event.target.style.backgroundColor = "green";
   let allGreen = Array.from(document.querySelectorAll(".game-button")).every(
     (b, index, array) => {
-      console.log(array);
+      // console.log(array);
       if (b.style.backgroundColor === "green") {
         return true;
       }
@@ -91,6 +91,7 @@ function greenBackground(event) {
 startButton.addEventListener("click", () => {
   startButton.style.display = "none";
   span.innerText = `${seconds}`;
+
   const countdown = setInterval(function () {
     if (hasWon) {
       clearInterval(countdown);
@@ -125,16 +126,13 @@ startButton.addEventListener("click", () => {
   }
 
   const challenge = setTimeout(function () {
-    document.querySelectorAll("button").forEach((b) => {
+    document.querySelectorAll("button").forEach((button) => {
       if (!hasWon) {
         result.style.backgroundColor = "red";
         result.innerText = "YOU LOSE!";
         result.style.display = "flex";
+        button.removeEventListener("click", greenBackground);
       }
     });
   }, 5000);
 });
-
-// for (let i = 0; i < buttonList.length; i++) {
-//   buttonList[i].removeEventListener("click", greenBackground);
-// }
